@@ -17,7 +17,7 @@ export default {
       <h2>Movies</h2>
       <ul v-if="movies">
         <li v-for="movie in movies">
-          <ProductItem :title="movie.title" :original="movie.original_title" :lang="movie.original_language" :vote="movie.vote_average" />
+          <ProductItem :title="movie.title" :original="movie.original_title" :lang="movie.original_language" :vote="movie.vote_average" :poster="movie.poster_path" />
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@ export default {
       <h2>Series</h2>
       <ul v-if="series">
         <li v-for="serie in series">
-          <ProductItem :title="serie.name" :original="serie.original_name" :lang="serie.original_language" :vote="serie.vote_average" />
+          <ProductItem :title="serie.name" :original="serie.original_name" :lang="serie.original_language" :vote="serie.vote_average" :poster="serie.poster_path" />
         </li>
       </ul>
     </div>

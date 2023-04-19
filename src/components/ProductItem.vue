@@ -11,20 +11,31 @@ export default {
     original: String,
     lang: String,
     vote: Number,
+    poster: String,
   },
   methods: {
     supported(lang) {
       return !lang_db.notSupported.includes(lang);
     },
+    srcPath(endPath) {
+      return `https://image.tmdb.org/t/p/w342/${endPath}`;
+    },
   },
 };
 </script>
 <template>
-  <div>{{ title }}</div>
-  <div>{{ original }}</div>
-  <div>
-    <span v-if="supported(lang)"><LangFlag :iso="lang" /></span>
-    <span v-else>{{ lang }} - not supported</span>
+  <div class="card">
+    <img :src="srcPath(poster)" class="card-img-top" :alt="title" />
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ original }}</p>
+      <div>
+        <span v-if="supported(lang)"><LangFlag :iso="lang" /></span>
+        <span v-else>{{ lang }} - not supported</span>
+      </div>
+      <div>{{ vote }}</div>
+    </div>
+    <!-- /.body -->
   </div>
-  <div>{{ vote }}</div>
+  <!-- /.card -->
 </template>
