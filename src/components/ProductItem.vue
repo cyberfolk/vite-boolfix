@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <template>
-  <div class="card">
+  <div class="card h-100">
     <img :src="srcPath(poster)" class="card-img-top" :alt="title" />
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
