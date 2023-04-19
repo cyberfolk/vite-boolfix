@@ -12,9 +12,12 @@ export default {
 </script>
 
 <template>
-  <SiteHeader></SiteHeader>
-  <SiteMain></SiteMain>
-  <SiteFooter></SiteFooter>
+  <div class="container">
+    <SiteHeader></SiteHeader>
+    <SiteMain></SiteMain>
+    <SiteFooter></SiteFooter>
+  </div>
+  <!-- /.container -->
 </template>
 
 <style lang="scss" scoped></style>
