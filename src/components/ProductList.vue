@@ -9,42 +9,6 @@ export default {
     movies: Array,
     series: Array,
   },
-  methods: {
-    langFix(lang) {
-      let fix = lang;
-      const noSupport = " - Not ISO supported - ";
-      switch (lang) {
-        case "sv":
-          fix += noSupport + "svedish";
-          break;
-        case "bs":
-          fix += noSupport;
-          break;
-        case "id":
-          fix += noSupport;
-          break;
-        case "ml":
-          fix += noSupport + "Malayalam";
-          break;
-        case "kn":
-          fix += noSupport;
-          break;
-        case "nl":
-          fix += noSupport + "olandese";
-          break;
-        case "el":
-          fix += noSupport;
-          break;
-        case "sh":
-          fix += noSupport + "Serbo-Croatian";
-          break;
-        case "cn":
-          fix += noSupport;
-          break;
-      }
-      return fix;
-    },
-  },
 };
 </script>
 <template>
