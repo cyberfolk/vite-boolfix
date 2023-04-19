@@ -13,9 +13,6 @@ export default {
       state,
     };
   },
-  mounted() {
-    state.fetchMovies(state.API_URL_MOVIE);
-  },
 };
 </script>
 
