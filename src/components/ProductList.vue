@@ -1,12 +1,13 @@
 <script>
-import LangFlag from "vue-lang-code-flags";
+import ProductItem from "./ProductItem.vue";
 export default {
-  name: "MovieList",
+  name: "ProductList",
   components: {
-    LangFlag,
+    ProductItem,
   },
   props: {
-    movies: Object,
+    movies: Array,
+    series: Array,
   },
   methods: {
     langFix(lang) {
@@ -47,15 +48,25 @@ export default {
 };
 </script>
 <template>
-  <ul v-if="movies">
-    <li v-for="movie in movies">
-      <div>{{ movie.title }}</div>
-      <div>{{ movie.original_title }}</div>
-      <div>
-        <span><LangFlag :iso="movie.original_language" /></span>
-        <span>{{ langFix(movie.original_language) }}</span>
-      </div>
-      <div>{{ movie.vote_average }}</div>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col-6">
+      <h2>Movies</h2>
+      <ul v-if="movies">
+        <li v-for="movie in movies">
+          <ProductItem :title="movie.title" :original="movie.original_title" :lang="movie.original_language" :vote="movie.vote_average" />
+        </li>
+      </ul>
+    </div>
+    <!-- /.col-6 -->
+    <div class="col-6">
+      <h2>Series</h2>
+      <ul v-if="series">
+        <li v-for="serie in series">
+          <ProductItem :title="serie.name" :original="serie.original_name" :lang="serie.original_language" :vote="serie.vote_average" />
+        </li>
+      </ul>
+    </div>
+    <!-- /.col-6 -->
+  </div>
+  <!-- /.row -->
 </template>

@@ -1,12 +1,12 @@
 <script>
 import { state } from "../state.js";
 import SearchBox from "./SearchBox.vue";
-import MovieList from "./MovieList.vue";
+import ProductList from "./ProductList.vue";
 export default {
   name: "SiteMain",
   components: {
     SearchBox,
-    MovieList,
+    ProductList,
   },
   data() {
     return {
@@ -18,8 +18,8 @@ export default {
 
 <template>
   <main>
-    <SearchBox @searchMovie="state.fetchMovies(state.API_URL_MOVIE, state.filter)" />
-    <MovieList :movies="state.movies" />
+    <SearchBox @searchMovie="state.fetchMovies(state.API_URL_MOVIE, state.filter), state.fetchSeries(state.API_URL_SERIE, state.filter)" />
+    <ProductList :movies="state.movies" :series="state.series" />
   </main>
 </template>
 
