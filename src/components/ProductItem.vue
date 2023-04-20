@@ -19,7 +19,7 @@ export default {
       return !lang_db.notSupported.includes(lang);
     },
     srcPath(endPath) {
-      console.log(endPath);
+      //console.log(endPath);
       return `https://image.tmdb.org/t/p/w342/${endPath}`;
     },
     fillStars(vote) {
@@ -46,7 +46,7 @@ export default {
         <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
-      <p class="card-text">{{ overview }}</p>
+      <p class="card-text ms_overview">{{ overview }}</p>
     </div>
     <!-- /.body -->
   </div>
@@ -57,18 +57,21 @@ export default {
 .card {
   position: relative;
   aspect-ratio: 0.66;
-}
-
-.card-img {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  object-fit: cover;
-}
-.card-body {
-  position: absolute;
-  background-color: white;
-  z-index: 1;
+  .card-img {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-body {
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+  }
+  .ms_overview {
+    font-style: italic;
+    font-size: 0.8rem;
+  }
 }
 
 .card:hover .card-img {
