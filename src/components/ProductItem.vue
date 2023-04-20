@@ -12,6 +12,7 @@ export default {
     lang: String,
     vote: Number,
     poster: String,
+    overview: String,
   },
   methods: {
     supported(lang) {
@@ -41,8 +42,11 @@ export default {
         <span v-if="supported(lang)"><LangFlag :iso="lang" /></span>
         <span v-else>{{ lang }} - not supported</span>
       </div>
-      <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
-      <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
+      <div>
+        <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
+        <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
+      </div>
+      <p class="card-text">{{ overview }}</p>
     </div>
     <!-- /.body -->
   </div>
