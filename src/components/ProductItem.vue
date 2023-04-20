@@ -20,6 +20,13 @@ export default {
     srcPath(endPath) {
       return `https://image.tmdb.org/t/p/w342/${endPath}`;
     },
+    fillStars(vote) {
+      vote = vote ? vote : 0; // put to zero if vote is null
+      return Math.round(vote / 2);
+    },
+    emptyStars(vote) {
+      return 5 - this.fillStars(vote);
+    },
   },
 };
 </script>
@@ -34,6 +41,8 @@ export default {
         <span v-else>{{ lang }} - not supported</span>
       </div>
       <div>{{ vote }}</div>
+      <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
+      <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
     </div>
     <!-- /.body -->
   </div>
