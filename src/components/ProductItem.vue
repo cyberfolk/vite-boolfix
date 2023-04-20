@@ -1,4 +1,6 @@
 <script>
+import { state } from "../state.js";
+import axios from "axios";
 import LangFlag from "vue-lang-code-flags";
 import lang_db from "../data/lang.json";
 export default {
@@ -6,6 +8,14 @@ export default {
   components: {
     LangFlag,
   },
+  data() {
+    return {
+      state,
+      API_URL_CREDITS: "/credits?",
+      cast: [],
+    };
+  },
+
   props: {
     title: String,
     original: String,
@@ -13,6 +23,8 @@ export default {
     vote: Number,
     poster: String,
     overview: String,
+    type: String,
+    id: Number,
   },
   methods: {
     supported(lang) {
@@ -29,6 +41,22 @@ export default {
     emptyStars(vote) {
       return 5 - this.fillStars(vote);
     },
+    getCrew() {
+      const url = state.API_URL_BASE + this.type + "/" + this.id + this.API_URL_CREDITS + state.API_URL_KEY;
+      console.log(url);
+      axios
+        .get(url)
+        .then((response) => {
+          this.cast = response.data.cast;
+        })
+        .catch((err) => {
+          console.log(err);
+          console.error(err.message);
+        });
+    },
+  },
+  created() {
+    this.getCrew();
   },
 };
 </script>
@@ -47,6 +75,8 @@ export default {
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
       <p class="card-text ms_overview">{{ overview }}</p>
+      <div>type: {{ type }}</div>
+      <div>id: {{ id }}</div>
     </div>
     <!-- /.body -->
   </div>
