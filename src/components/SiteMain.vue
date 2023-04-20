@@ -31,10 +31,7 @@ export default {
 
 <template>
   <main>
-    <div class="row g-3">
-      <ProductList :products="shuffle(state.movies, state.series)" />
-    </div>
-    <!-- /.row -->
+    <ProductList :products="shuffle(state.movies, state.series)" />
   </main>
 </template>
 

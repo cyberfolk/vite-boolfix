@@ -19,8 +19,11 @@ export default {
 };
 </script>
 <template>
-  <div class="col-6" v-for="p in products">
-    <ProductItem :title="title(p)" :original="original_title(p)" :lang="p.original_language" :vote="p.vote_average" :poster="p.poster_path" :overview="p.overview" />
+  <div class="row g-3">
+    <div class="col-3" v-for="p in products">
+      <ProductItem :title="title(p)" :original="original_title(p)" :lang="p.original_language" :vote="p.vote_average" :poster="p.poster_path" :overview="p.overview" />
+    </div>
+    <!-- /.col-6 -->
   </div>
-  <!-- /.col-6 -->
+  <!-- /.row -->
 </template>
