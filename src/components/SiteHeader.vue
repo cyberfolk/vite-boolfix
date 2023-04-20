@@ -17,7 +17,7 @@ export default {
 <template>
   <header class="d-flex justify-content-between align-items-center">
     <h1>Boolfix</h1>
-    <SearchBox @searchMovie="state.fetchMovies(state.API_URL_MOVIE, state.filter), state.fetchSeries(state.API_URL_SERIE, state.filter)" />
+    <SearchBox @search="state.fetchMovies(), state.fetchSeries()" />
   </header>
 </template>
 <style lang="scss" scoped></style>
