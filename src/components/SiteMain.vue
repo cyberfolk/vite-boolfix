@@ -11,29 +11,28 @@ export default {
       state,
     };
   },
+  methods: {
+    shuffle(array1, array2) {
+      const unity = array1.concat(array2);
+      let i = unity.length; // i: current index
+      let r; // r:  random index
+
+      while (i != 0) {
+        // While there remain elements to shuffle.
+        r = Math.floor(Math.random() * i); // Pick a remaining element.
+        i--;
+        [unity[i], unity[r]] = [unity[r], unity[i]]; // Swap current element with ranndom element. Destructuring assignment
+      }
+      return unity;
+    },
+  },
 };
 </script>
 
 <template>
   <main>
-    <div class="row">
-      <div class="col-6 border bg-primary">
-        <div class="ms_movies px-3">
-          <h2 class="py-3 text-center">Movies</h2>
-          <ProductList :products="state.movies" />
-        </div>
-        <!-- /.ms_movies -->
-      </div>
-
-      <!-- /.col-6 -->
-      <div class="col-6 border bg-warning">
-        <div class="ms_series px-3">
-          <h2 class="py-3 text-center">Series</h2>
-          <ProductList :products="state.series" />
-        </div>
-        <!-- /.ms_series -->
-      </div>
-      <!-- /.col-6 -->
+    <div class="row g-3">
+      <ProductList :products="shuffle(state.movies, state.series)" />
     </div>
     <!-- /.row -->
   </main>
