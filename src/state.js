@@ -10,6 +10,8 @@ export const state = reactive({
     API_URL_SERIE: "search/tv?",
     movies: [],
     series: [],
+    moviesGenres: [],
+    seriesGenres: [],
     filter: "",
 
     fetchMovies() {
@@ -42,4 +44,31 @@ export const state = reactive({
                 console.error(err.message);
             });
     },
+    getSeriesGenres() {
+        const url = this.API_URL_BASE + "genre/tv/list?" + this.API_URL_KEY;
+        console.log(url);
+        axios
+            .get(url)
+            .then((response) => {
+                this.seriesGenres = response.data.genres;
+            })
+            .catch((err) => {
+                console.log(err);
+                console.error(err.message);
+            });
+    },
+    getMoviesGenres() {
+        const url = this.API_URL_BASE + "genre/movie/list?" + this.API_URL_KEY;
+        console.log(url);
+        axios
+            .get(url)
+            .then((response) => {
+                this.moviesGenres = response.data.genres;
+            })
+            .catch((err) => {
+                console.log(err);
+                console.error(err.message);
+            });
+    },
+
 });

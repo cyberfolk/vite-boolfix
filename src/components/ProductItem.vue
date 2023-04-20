@@ -13,6 +13,7 @@ export default {
       state,
       API_URL_CREDITS: "/credits?",
       cast: [],
+      genres: [],
     };
   },
 
@@ -25,6 +26,7 @@ export default {
     overview: String,
     type: String,
     id: Number,
+    genre_ids: Array,
   },
   methods: {
     supported(lang) {
@@ -42,7 +44,7 @@ export default {
       return 5 - this.fillStars(vote);
     },
     getCrew() {
-      const url = state.API_URL_BASE + this.type + "/" + this.id + this.API_URL_CREDITS + state.API_URL_KEY;
+      const url = state.API_URL_BASE + this.type + "/" + this.id + "/credits?" + state.API_URL_KEY;
       console.log(url);
       axios
         .get(url)
@@ -76,6 +78,7 @@ export default {
       </div>
       <p class="card-text ms_overview">{{ overview }}</p>
       <div>type: {{ type }}</div>
+      <div>id: {{ id }}</div>
       <div>id: {{ id }}</div>
       <div v-for="actor in cast.slice(0, 5)">
         {{ actor.original_name }}
