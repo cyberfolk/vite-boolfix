@@ -56,13 +56,14 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  height: 437px;
+  aspect-ratio: 0.66;
 }
 
 .card-img {
   position: relative;
   z-index: 2;
-  max-height: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .card-body {
   position: absolute;
