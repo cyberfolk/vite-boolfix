@@ -77,6 +77,9 @@ export default {
       <p class="card-text ms_overview">{{ overview }}</p>
       <div>type: {{ type }}</div>
       <div>id: {{ id }}</div>
+      <div v-for="actor in cast.slice(0, 5)">
+        {{ actor.original_name }}
+      </div>
     </div>
     <!-- /.body -->
   </div>
