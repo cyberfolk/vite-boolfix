@@ -11,8 +11,8 @@ export default {
 };
 </script>
 <template>
-  <div class="searchbox">
-    <div class="input-group mb-3">
+  <div class="ms_searchbox">
+    <div class="input-group">
       <input type="text" class="form-control" placeholder="Search moviess..." v-model="state.filter" />
       <button class="btn btn-outline-secondary" type="button" @click="$emit('searchMovie')">search</button>
     </div>
