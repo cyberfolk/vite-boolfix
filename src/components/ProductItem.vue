@@ -78,6 +78,13 @@ export default {
         return state.seriesGenres;
       }
     },
+    reduce(overview) {
+      if (overview.length > 303) {
+        return overview.slice(0, 300) + "...";
+      } else {
+        return overview;
+      }
+    },
   },
 
   created() {
@@ -103,7 +110,7 @@ export default {
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
       <!-- /.ms_vote -->
-      <p class="card-text ms_overview">{{ overview }}</p>
+      <p class="card-text ms_overview">{{ reduce(overview) }}</p>
       <!-- /.ms_overview -->
       <div class="ms_actor">
         <span class="ms_title fw-bold">Actors: </span>
@@ -135,6 +142,12 @@ export default {
     position: absolute;
     background-color: white;
     z-index: 1;
+    .ms_actor {
+      font-size: 0.9rem;
+    }
+    .ms_genres {
+      font-size: 0.9rem;
+    }
     .ms_overview {
       font-style: italic;
       font-size: 0.8rem;
