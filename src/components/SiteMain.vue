@@ -13,16 +13,19 @@ export default {
     };
   },
   methods: {
-    shuffle(array1, array2) {
-      const unity = array1.concat(array2);
-      let i = unity.length; // i: current index
+    unify(array1, array2) {
+      return array1.concat(array2);
+    },
+    //NOT USED
+    shuffle(array) {
+      let i = array.length; // i: current index
       let r; // r:  random index
 
       while (i != 0) {
         // While there remain elements to shuffle.
         r = Math.floor(Math.random() * i); // Pick a remaining element.
         i--;
-        [unity[i], unity[r]] = [unity[r], unity[i]]; // Swap current element with ranndom element. Destructuring assignment
+        [array[i], array[r]] = [array[r], array[i]]; // Swap current element with ranndom element. Destructuring assignment
       }
       return unity;
     },
@@ -36,7 +39,7 @@ export default {
 
 <template>
   <main class="m-5">
-    <ProductList :products="shuffle(state.movies, state.series)" />
+    <ProductList :products="unify(state.movies, state.series)" />
   </main>
 </template>
 
