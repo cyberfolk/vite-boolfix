@@ -51,7 +51,7 @@ export default {
 
     getCast() {
       const url = state.API_URL_BASE + this.type + "/" + this.id + "/credits?" + state.API_URL_KEY;
-      console.log(url);
+      //console.log(url);
       axios
         .get(url)
         .then((response) => {

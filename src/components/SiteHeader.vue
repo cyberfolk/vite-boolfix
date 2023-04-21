@@ -28,12 +28,12 @@ export default {
     fetch() {
       if (this.isActiveMovies) {
         state.fetchMovies();
-        state.series = null;
+        state.series = [];
         return;
       }
       if (this.isActiveSeries) {
         state.fetchSeries();
-        state.movies = null;
+        state.movies = [];
         return;
       }
       if (!this.isActiveSeries && !this.isActiveMovies) {
