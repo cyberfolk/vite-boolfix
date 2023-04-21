@@ -50,7 +50,7 @@ export default {
   <header>
     <nav class="navbar navbar-expand-md navbar-light bg-light justify-content-beetwen px-3">
       <a class="navbar-brand" href="#">
-        <img height="80" src="../assets/image/logo.png" alt="logo" />
+        <img height="80" :src="getImageUrl('logo.png')" alt="logo" />
       </a>
 
       <!-- /.navbar-brand -->
