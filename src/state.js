@@ -59,7 +59,7 @@ export const state = reactive({
     },
     fetchMoviesGenres() {
         const url = this.API_URL_BASE + "genre/movie/list?" + this.API_URL_KEY;
-        //console.log(url);
+        console.log(url);
         axios
             .get(url)
             .then((response) => {
