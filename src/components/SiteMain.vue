@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="mx-3">
     <ProductList :products="shuffle(state.movies, state.series)" />
   </main>
 </template>
