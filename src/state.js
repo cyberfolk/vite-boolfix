@@ -44,7 +44,7 @@ export const state = reactive({
                 console.error(err.message);
             });
     },
-    getSeriesGenres() {
+    fetchSeriesGenres() {
         const url = this.API_URL_BASE + "genre/tv/list?" + this.API_URL_KEY;
         console.log(url);
         axios
@@ -57,7 +57,7 @@ export const state = reactive({
                 console.error(err.message);
             });
     },
-    getMoviesGenres() {
+    fetchMoviesGenres() {
         const url = this.API_URL_BASE + "genre/movie/list?" + this.API_URL_KEY;
         console.log(url);
         axios
@@ -70,5 +70,4 @@ export const state = reactive({
                 console.error(err.message);
             });
     },
-
 });

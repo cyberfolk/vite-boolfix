@@ -28,8 +28,8 @@ export default {
     },
   },
   mounted() {
-    state.getSeriesGenres();
-    state.getMoviesGenres();
+    state.fetchSeriesGenres();
+    state.fetchMoviesGenres();
   },
 };
 </script>
