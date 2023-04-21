@@ -49,11 +49,11 @@ Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma d
 
 Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
 
-## :heavy_check_mark: Milestone 5B (Opzionale):
+## :heavy_check_mark: Milestone 5A (Opzionale):
 
 Partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti dall’API con Nome e Cognome,
 
-## :x: Milestone 5A (Opzionale):
+## :heavy_check_mark: Milestone 5B (Opzionale):
 
 Come sopra ma restituire anche i generi associati al film con questo schema: “Genere 1, Genere 2, …”.
 
