@@ -90,18 +90,31 @@ export default {
     <img v-if="poster" :src="srcPath(poster)" class="card-img" :alt="title" />
     <div class="card-body h-100 w-100">
       <h5 class="card-title">{{ title }}</h5>
+      <!-- /.ms_title -->
       <p class="card-text">{{ original }}</p>
-      <div>
+      <!-- /.ms_original -->
+      <div class="ms_lang">
         <span v-if="supported(lang)"><LangFlag :iso="lang" /></span>
         <span v-else>{{ lang }} - not supported</span>
       </div>
-      <div>
+      <!-- /.ms_lang -->
+      <div class="ms_vote">
         <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
+      <!-- /.ms_vote -->
       <p class="card-text ms_overview">{{ overview }}</p>
-      <div v-for="actor in cast.slice(0, 5)">{{ actor.original_name }}</div>
-      <div v-for="genre_id in genre_ids">{{ toGenre(genre_id) }}</div>
+      <!-- /.ms_overview -->
+      <div class="ms_actor">
+        <span class="ms_title fw-bold">Actors: </span>
+        <span class="ms_list" v-for="actor in cast.slice(0, 5)">{{ actor.original_name }}</span>
+      </div>
+      <!-- /.ms_actor -->
+      <div class="ms_genres">
+        <span class="ms_title fw-bold">Genres: </span>
+        <span class="ms_list" v-for="genre_id in genre_ids">{{ toGenre(genre_id) }}</span>
+      </div>
+      <!-- /.ms_genres -->
     </div>
     <!-- /.body -->
   </div>
@@ -122,10 +135,16 @@ export default {
     position: absolute;
     background-color: white;
     z-index: 1;
-  }
-  .ms_overview {
-    font-style: italic;
-    font-size: 0.8rem;
+    .ms_overview {
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+    .ms_list:after {
+      content: ", ";
+    }
+    .ms_list:last-child:after {
+      content: none;
+    }
   }
 }
 
