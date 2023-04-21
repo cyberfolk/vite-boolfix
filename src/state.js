@@ -17,7 +17,7 @@ export const state = reactive({
     fetchMovies() {
         this.loadingMovies = true;
         const url = this.API_URL_BASE + this.API_URL_MOVIE + this.API_URL_KEY + "&query=" + this.filter;
-        console.log(url);
+        //console.log(url);
         axios
             .get(url)
             .then((response) => {
@@ -32,7 +32,7 @@ export const state = reactive({
     fetchSeries() {
         this.loadingSeries = true;
         const url = this.API_URL_BASE + this.API_URL_SERIE + this.API_URL_KEY + "&query=" + this.filter;
-        console.log(url);
+        //console.log(url);
         axios
             .get(url)
             .then((response) => {
@@ -46,7 +46,7 @@ export const state = reactive({
     },
     fetchSeriesGenres() {
         const url = this.API_URL_BASE + "genre/tv/list?" + this.API_URL_KEY;
-        console.log(url);
+        //console.log(url);
         axios
             .get(url)
             .then((response) => {
@@ -59,7 +59,7 @@ export const state = reactive({
     },
     fetchMoviesGenres() {
         const url = this.API_URL_BASE + "genre/movie/list?" + this.API_URL_KEY;
-        console.log(url);
+        //console.log(url);
         axios
             .get(url)
             .then((response) => {
