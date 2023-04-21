@@ -21,21 +21,21 @@ export default {
     getImageUrl(name) {
       return new URL(`../assets/img/${name}`, import.meta.url).href;
     },
-    toggleMoviesGenres() {
+    selectMoviesGenres() {
       this.isActiveMovies = false;
       this.isActiveSeries = false;
       this.isActiveSeriesGenres = false;
       this.seriesGenresSelected = "";
-      this.isActiveMoviesGenres = !this.isActiveMoviesGenres;
+      if (!this.isActiveMoviesGenres) this.isActiveMoviesGenres = true;
       state.series = [];
       this.filterMovie();
     },
-    toggleSeriesGenres() {
+    selectSeriesGenres() {
       this.isActiveMovies = false;
       this.isActiveSeries = false;
       this.isActiveMoviesGenres = false;
       this.moviesGenresSelected = "";
-      this.isActiveSeriesGenres = !this.isActiveSeriesGenres;
+      if (!this.isActiveSeriesGenres) this.isActiveSeriesGenres = true;
       state.movies = [];
       this.filterSeries();
     },
@@ -113,13 +113,13 @@ export default {
           <li class="nav-item"><button class="btn text-white fw-bold" :class="{ active: isActiveMovies }" @click="toggleMovies()">MOVIES</button></li>
           <li class="nav-item"><button class="btn text-white fw-bold" :class="{ active: isActiveSeries }" @click="toggleSeries()">SERIES</button></li>
           <li>
-            <select class="form-select border-0 bg-transparent text-white fw-bold" v-model="this.moviesGenresSelected" @change="toggleMoviesGenres()" :class="{ active: isActiveMoviesGenres }">
+            <select class="form-select border-0 bg-transparent text-white fw-bold" v-model="this.moviesGenresSelected" @change="selectMoviesGenres()" :class="{ active: isActiveMoviesGenres }">
               <option value="" selected>MOVIES GENRES</option>
               <option v-for="genre in state.moviesGenres" :value="genre">{{ genre.name }}</option>
             </select>
           </li>
           <li>
-            <select class="form-select border-0 bg-transparent text-white fw-bold" v-model="this.seriesGenresSelected" @change="toggleSeriesGenres()" :class="{ active: isActiveSeriesGenres }">
+            <select class="form-select border-0 bg-transparent text-white fw-bold" v-model="this.seriesGenresSelected" @change="selectSeriesGenres()" :class="{ active: isActiveSeriesGenres }">
               <option value="" selected>SERIES GENRES</option>
               <option v-for="genre in state.seriesGenres" :value="genre">{{ genre.name }}</option>
             </select>
