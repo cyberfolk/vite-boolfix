@@ -3,17 +3,15 @@ import { state } from "../state.js";
 import axios from "axios";
 import LangFlag from "vue-lang-code-flags";
 import lang_db from "../data/lang.json";
+
 export default {
   name: "ProductItem",
-  components: {
-    LangFlag,
-  },
+  components: { LangFlag },
+
   data() {
     return {
       state,
-      API_URL_CREDITS: "/credits?",
       cast: [],
-      genres: [],
     };
   },
 
@@ -28,22 +26,30 @@ export default {
     id: Number,
     genre_ids: Array,
   },
+
   methods: {
+    // If lang is inclued in lang.notSupported -> supported() return false
     supported(lang) {
       return !lang_db.notSupported.includes(lang);
     },
+
+    //Builds the full path where the poster is located
     srcPath(endPath) {
-      //console.log(endPath);
       return `https://image.tmdb.org/t/p/w342/${endPath}`;
     },
+
+    // Return the number of star, from 1 to 5, corresponding to the vote
     fillStars(vote) {
       vote = vote ? vote : 0; // put to zero if vote is null
       return Math.round(vote / 2);
     },
+
+    //Return the number of void star, complementair to 5
     emptyStars(vote) {
       return 5 - this.fillStars(vote);
     },
-    getCrew() {
+
+    getCast() {
       const url = state.API_URL_BASE + this.type + "/" + this.id + "/credits?" + state.API_URL_KEY;
       console.log(url);
       axios
@@ -56,9 +62,26 @@ export default {
           console.error(err.message);
         });
     },
+
+    // Return the name from genre's id
+    toGenre(genre_id) {
+      let genres = this.getGenres(this.type);
+      const genre = genres.find((genre) => genre.id === genre_id).name;
+      return genre;
+    },
+
+    // Return the list of genres by product type
+    getGenres(type) {
+      if (type == "movie") {
+        return state.moviesGenres;
+      } else {
+        return state.seriesGenres;
+      }
+    },
   },
+
   created() {
-    this.getCrew();
+    this.getCast();
   },
 };
 </script>
@@ -77,12 +100,8 @@ export default {
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
       <p class="card-text ms_overview">{{ overview }}</p>
-      <div>type: {{ type }}</div>
-      <div>id: {{ id }}</div>
-      <div>id: {{ id }}</div>
-      <div v-for="actor in cast.slice(0, 5)">
-        {{ actor.original_name }}
-      </div>
+      <div v-for="actor in cast.slice(0, 5)">{{ actor.original_name }}</div>
+      <div v-for="genre_id in genre_ids">{{ toGenre(genre_id) }}</div>
     </div>
     <!-- /.body -->
   </div>
