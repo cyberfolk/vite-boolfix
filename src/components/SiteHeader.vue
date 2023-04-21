@@ -19,21 +19,31 @@ export default {
     },
     toggleMovies() {
       this.isActiveSeries = false;
+      state.series = [];
       this.isActiveMovies = !this.isActiveMovies;
+      if (this.isActiveMovies) {
+        state.fetchMovies();
+      } else {
+        state.fetchSeries();
+      }
     },
     toggleSeries() {
       this.isActiveMovies = false;
+      state.movies = [];
       this.isActiveSeries = !this.isActiveSeries;
+      if (this.isActiveSeries) {
+        state.fetchSeries();
+      } else {
+        state.fetchMovies();
+      }
     },
     fetch() {
       if (this.isActiveMovies) {
         state.fetchMovies();
-        state.series = [];
         return;
       }
       if (this.isActiveSeries) {
         state.fetchSeries();
-        state.movies = [];
         return;
       }
       if (!this.isActiveSeries && !this.isActiveMovies) {
