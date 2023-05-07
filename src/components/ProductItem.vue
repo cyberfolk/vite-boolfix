@@ -93,15 +93,18 @@ export default {
 };
 </script>
 <template>
-  <div class="card">
+  <div class="card position-relative">
     <img v-if="poster" :src="srcPath(poster)" class="card-img" :alt="title" />
+    <div class="badge position-absolute top-0 start-0 mt-1 ms-1" :class="type == 'tv' ? 'bg-danger' : 'bg-primary'">{{ type }}</div>
     <div class="card-body h-100 w-100">
       <h5 class="card-title">{{ title }}</h5>
       <!-- /.ms_title -->
       <p class="card-text">{{ original }}</p>
       <!-- /.ms_original -->
       <div class="ms_lang">
-        <span v-if="supported(lang)"><LangFlag :iso="lang" /></span>
+        <span v-if="supported(lang)">
+          <LangFlag :iso="lang" />
+        </span>
         <span v-else>{{ lang }} - not supported</span>
       </div>
       <!-- /.ms_lang -->
@@ -132,29 +135,40 @@ export default {
 .card {
   position: relative;
   aspect-ratio: 0.66;
+
+  .badge {
+    z-index: 2;
+  }
+
   .card-img {
     position: relative;
     z-index: 2;
     height: 100%;
     object-fit: cover;
   }
+
   .card-body {
     position: absolute;
     background-color: white;
     z-index: 1;
+
     .ms_actor {
       font-size: 0.9rem;
     }
+
     .ms_genres {
       font-size: 0.9rem;
     }
+
     .ms_overview {
       font-style: italic;
       font-size: 0.8rem;
     }
+
     .ms_list:after {
       content: ", ";
     }
+
     .ms_list:last-child:after {
       content: none;
     }
