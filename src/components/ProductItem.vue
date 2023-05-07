@@ -78,13 +78,6 @@ export default {
         return state.seriesGenres;
       }
     },
-    reduce(overview) {
-      if (overview.length > 303) {
-        return overview.slice(0, 300) + "...";
-      } else {
-        return overview;
-      }
-    },
   },
 
   created() {
@@ -113,7 +106,7 @@ export default {
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
       <!-- /.ms_vote -->
-      <p class="card-text ms_overview">{{ reduce(overview) }}</p>
+      <p class="card-text ms_overview">{{ overview }}</p>
       <!-- /.ms_overview -->
       <div class="ms_actor">
         <span class="ms_title fw-bold">Actors: </span>
@@ -132,6 +125,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use "../assets/scss/partials/variables" as *;
+
 .card {
   position: relative;
   aspect-ratio: 0.66;
@@ -149,8 +144,23 @@ export default {
 
   .card-body {
     position: absolute;
-    background-color: white;
     z-index: 1;
+    overflow-y: auto;
+    color: $light;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 40px;
+      box-shadow: inset 0 0 20px 20px $darkless;
+      border: solid 6px transparent;
+    }
+
+
 
     .ms_actor {
       font-size: 0.9rem;
@@ -176,6 +186,10 @@ export default {
 }
 
 .card:hover .card-img {
-  display: none;
+  filter: brightness(0.2);
+}
+
+.card:hover .card-body {
+  z-index: 3;
 }
 </style>
