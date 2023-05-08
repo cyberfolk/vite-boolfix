@@ -89,32 +89,32 @@ export default {
   <div class="card position-relative">
     <img v-if="poster" :src="srcPath(poster)" class="card-img" :alt="title" />
     <div class="badge position-absolute top-0 start-0 mt-1 ms-1" :class="type == 'tv' ? 'bg-danger' : 'bg-primary'">{{ type }}</div>
-    <div class="card-body h-100 w-100">
-      <h5 class="card-title">{{ title }}</h5>
+    <div class="card-body h-100 w-100 text-center">
+      <h5 class="card-title mb-0">{{ title }}</h5>
       <!-- /.ms_title -->
-      <p class="card-text">{{ original }}</p>
+      <p class="card-text mb-2">{{ original }}</p>
       <!-- /.ms_original -->
-      <div class="ms_lang">
+      <div class="ms_lang mb-2">
         <span v-if="supported(lang)">
           <LangFlag :iso="lang" />
         </span>
         <span v-else>{{ lang }} - not supported</span>
       </div>
       <!-- /.ms_lang -->
-      <div class="ms_vote">
+      <div class="ms_vote mb-2">
         <span v-for="n in fillStars(vote)" class="fa-solid fa-star"></span>
         <span v-for="n in emptyStars(vote)" class="fa-regular fa-star"></span>
       </div>
       <!-- /.ms_vote -->
       <p class="card-text ms_overview">{{ overview }}</p>
       <!-- /.ms_overview -->
-      <div class="ms_actor">
-        <span class="ms_title fw-bold">Actors: </span>
+      <div class="ms_actor mb-2">
+        <h6 class="ms_title fw-bold mb-0">Actors: </h6>
         <span class="ms_list" v-for="actor in cast.slice(0, 5)">{{ actor.original_name }}</span>
       </div>
       <!-- /.ms_actor -->
-      <div class="ms_genres">
-        <span class="ms_title fw-bold">Genres: </span>
+      <div class="ms_genres mb-2">
+        <h6 class="ms_title fw-bold mb-0">Genres: </h6>
         <span class="ms_list" v-for="genre_id in genre_ids">{{ toGenre(genre_id) }}</span>
       </div>
       <!-- /.ms_genres -->
@@ -173,6 +173,7 @@ export default {
     .ms_overview {
       font-style: italic;
       font-size: 0.8rem;
+      text-align: justify
     }
 
     .ms_list:after {
@@ -190,6 +191,10 @@ export default {
 }
 
 .card:hover .card-body {
-  z-index: 3;
+  z-index: 2;
+}
+
+.card:hover .badge {
+  z-index: 1;
 }
 </style>
