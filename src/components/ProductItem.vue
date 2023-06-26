@@ -130,6 +130,7 @@ export default {
 .card {
   position: relative;
   aspect-ratio: 0.66;
+  background-color: $dark;
 
   .badge {
     z-index: 2;
@@ -160,8 +161,6 @@ export default {
       border: solid 6px transparent;
     }
 
-
-
     .ms_actor {
       font-size: 0.9rem;
     }
@@ -187,7 +186,7 @@ export default {
 }
 
 .card:hover .card-img {
-  filter: brightness(0.2);
+  filter: brightness(0.4);
 }
 
 .card:hover .card-body {
