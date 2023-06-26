@@ -1,5 +1,4 @@
 <script>
-import { store } from "../../../../l-55-vite-store/vite-yu-gi-oh/src/store";
 import { state } from "../state.js";
 import ProductList from "./ProductList.vue";
 export default {
