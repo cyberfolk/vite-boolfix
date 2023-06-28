@@ -1,4 +1,4 @@
-# Vite-boolfix
+# Netflix - Replica web-app
 
 **Initial commit**: 19/03/23
 
