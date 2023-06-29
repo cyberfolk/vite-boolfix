@@ -2,7 +2,7 @@
 
 **Initial commit**: 19/03/23
 
-**Tecnologie:** vite, vue.js, js, axios, html, css e bootstrap.
+**Tecnologie:** Vite, Vue.js, Javascript, Axios, HTML, CSS, SASS e Bootstrap.
 
 🎬 Ed ecco qui la mia replica di Netflix, per Boolean.
 Con ad Axios e alle API di TheMovieDB mi è stato possibile mostrare i film più popolari, permettere all'utente ricercare i sui titoli preferiti mostrando i risultati suddivisi tra Serie Tv e Film.
