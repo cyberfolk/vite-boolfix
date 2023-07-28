@@ -10,7 +10,7 @@ Grazie ad Axios e all'API di TheMovieDB mi è stato possibile mostrare i film pi
 https://github.com/cyberfolk/vite-netflix/assets/114855536/e013c684-d909-458f-994f-e45d47680529
 
 ## Milestone:
-- [x] **global state**: progettarne la struttura.
+- [x] **Global state**: progettarne la struttura.
 - [x] **Searchbar**: Creare un vue-component costituito da un input e un button dove poter scrivere completamente o parzialmente il nome di un film. Cliccando sul bottone, parte la chiamata API che restituisce tutti i film contenenti ciò che ha scritto l’utente. Visualizzare a schermo i seguenti valori per ogni film trovato: **Titolo**, **Titolo Originale**, **Lingua** e **Voto**
 - [x] **Bandiera Lingua**: trasformare la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
   - [LangFlag](https://www.npmjs.com/package/vue-lang-code-flags) - *scelto*. Non opera sui paesi ma direttamente sulle lingue seguendo la codifica ISO 639-1.
@@ -24,7 +24,7 @@ https://github.com/cyberfolk/vite-netflix/assets/114855536/e013c684-d909-458f-99
 - [x] **Info hover on card** Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview.
 - [x] **Show actors list**: partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti dall’API con Nome e Cognome,
 - [x] **Show genres list**: come sopra ma restituire anche i generi associati al film con questo schema: “Genere 1, Genere 2, …”.
-- [x] Creare una lista di generi richiedendo quelli disponibili all'API.
+- [x] **Get genres list**: creare una lista di generi richiedendo quelli disponibili all'API.
 
 ## TODO
 - [ ] Aggiungere pagina iniziale.
