@@ -4,29 +4,30 @@
 
 **Tecnologie:** Vite, Vue.js, Javascript, Axios, HTML, CSS, SASS e Bootstrap.
 
-🎬 Ed ecco qui la mia replica di Netflix, per Boolean.
-Grazie ad Axios e all'API di TheMovieDB mi è stato possibile mostrare i film più popolari nella schermata prinncipale e poi permettere all'utente di ricercare i sui titoli preferiti utilizzando una barra di ricerca presente nella navbar.
+**Info**: 🎬 And here's my Netflix Replica, for Boolean.
+Thanks to Axios and TheMovieDB API I was able to show the most popular movies on the main screen and then allow the user to search for their favorite titles using a search bar in the navbar.
 
+## Video Demo
 https://github.com/cyberfolk/vite-netflix/assets/114855536/e013c684-d909-458f-994f-e45d47680529
 
 ## Milestone:
-- [x] **Global state**: progettarne la struttura.
-- [x] **Searchbar**: Creare un vue-component costituito da un input e un button dove poter scrivere completamente o parzialmente il nome di un film. Cliccando sul bottone, parte la chiamata API che restituisce tutti i film contenenti ciò che ha scritto l’utente. Visualizzare a schermo i seguenti valori per ogni film trovato: **Titolo**, **Titolo Originale**, **Lingua** e **Voto**
-- [x] **Bandiera Lingua**: trasformare la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
-  - [LangFlag](https://www.npmjs.com/package/vue-lang-code-flags) - *scelto*. Non opera sui paesi ma direttamente sulle lingue seguendo la codifica ISO 639-1.
-  - [CountryFlag](https://github.com/ubaldop/vue-country-flag) - *scartato*.
-  - [FlagIcons](https://www.vuescript.com/260-flag-icons/) - *scartato*.
-- [x] **TV-Series research**: allargare la ricerca anche alle serie tv. Con la stessa azione di ricerca prendere sia i film che corrispondono alla query, sia le serie tv, stando attenti ad avere alla fine dei valori simili (le serie e i film hanno campi nel JSON di risposta diversi, simili ma non sempre identici). [Qui](https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs) un esempio di chiamata per le serie tv.
-- [x] **Add Cover**: aggiungere al nostro elenco le copertina del film/serie-tv. Partiamo dall’URL base delle immagini di TMDB: https://image.tmdb.org/t/p/ aggiungere la dimensione desiderata ([elenco dimensioni disponibili](https://www.themoviedb.org/talk/53c11d4ec3a3684cf4006400)) e infine aggiungere la parte finale passataci dall’API che rappresenta il codice per la copertina del film. [Qui](https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png) un esempio.
-- [x] **Vote 5 Stars**: trasformare il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome). Arrotondare sempre per eccesso all’unità successiva, non gestire icone mezze piene.
-- [x] **Style header**: aggiungere un header che contiene logo e search bar
-- [x] Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (ho usato il poster_path con w342)
-- [x] **Info hover on card** Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview.
-- [x] **Show actors list**: partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti dall’API con Nome e Cognome,
-- [x] **Show genres list**: come sopra ma restituire anche i generi associati al film con questo schema: “Genere 1, Genere 2, …”.
-- [x] **Get genres list**: creare una lista di generi richiedendo quelli disponibili all'API.
+- [x] **Global state**: design its structure.
+- [x] **Searchbar**: Create a Vue-component consisting of an input and a button where you can write completely or partially the name of a film. By clicking on the button, the API call starts which returns all the films containing what the user wrote. Display the following values on the screen for each film found: **Title**, **Original Title**, **Language** and **Rating**
+- [x] **Language Flag**: transform the static string of the language into a real flag of the corresponding nation, managing the case in which we do not have the flag of the nation returned by the API (the flags are not present in FontAwesome ).
+    - [LangFlag](https://www.npmjs.com/package/vue-lang-code-flags) - *selected*. It does not operate on countries but directly on languages following ISO 639-1 code.
+    - [CountryFlag](https://github.com/ubaldop/vue-country-flag) - *discarded*.
+    - [FlagIcons](https://www.vuescript.com/260-flag-icons/) - *discarded*.
+- [x] **TV series search**: broaden the search to include TV series. With the same search action, take both the films that match the query and the TV series, being careful to have similar values at the end (the series and films have different fields in the response JSON, similar but not always identical). [Here](https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&lingual=it_IT&query=scrubs) an example of a call for TV series.
+- [x] **Add cover**: add the covers of the film/TV series to our list. Let's start from the base URL of TMDB images: https://image.tmdb.org/t/p/ add the desired size ([list of available sizes](https://www.themoviedb.org/talk/53c11d4ec3a3684cf4006400)) and finally add the final part passed to us by the API which represents the code for the film cover. [Here](https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png) an example.
+- [x] **Rate 5 Stars**: transform the vote from 1 to 10 decimal into an integer number from 1 to 5, so as to allow us to print a number of full stars ranging from 1 to 5 on the screen, leaving the remaining empty (we find the icons in FontAwesome). Always round up to the next unit, do not handle half-full icons.
+- [x] **Style header**: add a header that contains logo and search bar
+- [x] After searching for something in the search bar, the results appear in the form of a "card" where the background is represented by the cover image (I used the poster_path with w342)
+- [x] **Info hover on card** By moving the mouse over a card (on hover), the additional information already present in the previous points plus the overview appears.
+- [x] **Show actor list**: starting from a film or series, ask the API which actors are part of the cast by adding ONLY the first 5 returned by the API with Name to our Film / Series tab and surname,
+- [x] **Show genre list**: as above but also return the genres associated with the film with this scheme: “Genre 1, Genre 2, …”.
+- [x] **Get kinds list**: creates a list of genres by requesting those available from the API.
 
 ## TODO
-- [ ] Aggiungere pagina iniziale.
-- [ ] Aggiungere Slider simil netflix.
-- [ ] Implementare ricerca per genere.
+- [ ] Add home page.
+- [ ] Add Slider similar to Netflix.
+- [ ] Implement search by genre.
